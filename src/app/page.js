@@ -10,36 +10,17 @@ export default function RandomUserPage() {
   const [users, setUsers] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [genAmount, setGenAmount] = useState(1);
-  const [isFirstLoad, setIsFristLoanding] = useState(true);
 
   useEffect(() => {
-    if (isFirstLoad) {
-      setIsFristLoanding(false);
-      return;
+    const storedGenAmount = JSON.parse(localStorage.getItem("genAmount"));
+    if (storedGenAmount !== null) {
+      setGenAmount(storedGenAmount);
     }
-    if (!isFirstLoad) {
-      const strTasks = JSON.stringify(genAmount);
-      localStorage.getItem("task", strTasks);
-    }
-  }, [genAmount]);
-
-  useEffect(() => {
-    const strTasks = JSON.parse(localStorage.getItem("task"));
-    if (strTasks == null) {
-      return;
-    }
-    setGenAmount(parseInt(strTasks));
-    const fetchData = async () => {
-      setIsLoading(true);
-      const resp = await axios.get(
-        `https://randomuser.me/api/?results=${strTasks}`
-      );
-      const users = resp.data.results.map(cleanUser);
-      setUsers(users);
-      setIsLoading(false);
-    };
-    fetchData();
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("genAmount", JSON.stringify(genAmount));
+  }, [genAmount]);
 
   const generateBtnOnClick = async () => {
     setIsLoading(true);
