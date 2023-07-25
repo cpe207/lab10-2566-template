@@ -5,17 +5,6 @@ import axios from "axios";
 import { UserCard } from "@/components/UserCard";
 import { cleanUser } from "@/libs/cleanUser";
 
-export default function RandomUserPage() {
-  //user = null or array of object
-  const [users, setUsers] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [genAmount, setGenAmount] = useState(1);
-  const [isFirstLoad, setIsFristLoanding] = useState(true);
-
-  useEffect(() => {
-    if (isFirstLoad) {
-      setIsFristLoanding(false);
-      return;
     }
     if (!isFirstLoad) {
       const strTasks = JSON.stringify(genAmount);
