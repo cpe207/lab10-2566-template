@@ -10,10 +10,11 @@ export default function RandomUserPage() {
   const [users, setUsers] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [genAmount, setGenAmount] = useState(1);
+  const [isFirstLoad, setisFirstLoad] = useState(true);
 
   useEffect(() => {
-    if (isLoading) {
-      setIsLoading(false);
+    if (isFirstLoad) {
+      setisFirstLoad(false);
       return;
     }
     const strgenAmount = JSON.stringify(genAmount);
@@ -64,6 +65,7 @@ export default function RandomUserPage() {
         !isLoading &&
         users.map((user) => (
           <UserCard
+            id={user.email}
             name={user.name}
             imgUrl={user.imgUrl}
             address={user.address}
