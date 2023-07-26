@@ -37,8 +37,8 @@ export default function RandomUserPage() {
       `https://randomuser.me/api/?results=${genAmount}`
     );
     setIsLoading(false);
-    const usersData = resp.data.results;
-    const cleanedUsers = usersData.map((users) => cleanUser(users));
+    const users = resp.data.results;
+    const cleanedUsers = users.map((users) => cleanUser(users));
     setUsers(cleanedUsers);
   };
 
