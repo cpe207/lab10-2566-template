@@ -10,16 +10,15 @@ export default function RandomUserPage() {
   const [users, setUsers] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [genAmount, setGenAmount] = useState(1);
-  const [isFirstLoad, setisFirstLoad] = useState(true);
 
   useEffect(() => {
-    if (isFirstLoad) {
-      setisFirstLoad(false);
+    if (isLoading) {
+      setIsLoading(false);
       return;
     }
     const strgenAmount = JSON.stringify(genAmount);
     localStorage.setItem("genAmount", strgenAmount);
-  }, [genAmount, isFirstLoad]);
+  }, [genAmount]);
 
   useEffect(() => {
     const strgenAmount = localStorage.getItem("genAmount");
