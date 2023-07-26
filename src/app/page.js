@@ -24,7 +24,7 @@ export default function RandomUserPage() {
   useEffect(() => {
     const strgenAmount = localStorage.getItem("genAmount");
     if (strgenAmount === null) {
-      setGenAmount([]); // Set an empty array as the default value for tasks
+      setGenAmount([]);
       return;
     }
     const loadedgenAmount = JSON.parse(strgenAmount);
