@@ -38,7 +38,7 @@ export default function RandomUserPage() {
     );
     setIsLoading(false);
     const usersData = resp.data.results;
-    const cleanedUsers = usersData.map((user) => cleanUser(user));
+    const cleanedUsers = usersData.map((users) => cleanUser(users));
     setUsers(cleanedUsers);
   };
 
