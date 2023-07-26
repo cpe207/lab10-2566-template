@@ -63,13 +63,12 @@ export default function RandomUserPage() {
       )}
       {users &&
         !isLoading &&
-        users.map((user, index) => (
+        users.map((Users) => (
           <UserCard
-            key={index}
-            name={user.name}
-            imgUrl={user.imgUrl}
-            address={user.address}
-            email={user.email}
+            name={users.name}
+            imgUrl={users.imgUrl}
+            address={users.address}
+            email={users.email}
           />
         ))}
     </div>
