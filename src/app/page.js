@@ -19,7 +19,7 @@ export default function RandomUserPage() {
     }
     const strgenAmount = JSON.stringify(genAmount);
     localStorage.setItem("genAmount", strgenAmount);
-  }, [genAmount]);
+  }, [genAmount, isFirstLoad]);
 
   useEffect(() => {
     const strgenAmount = localStorage.getItem("genAmount");
