@@ -37,8 +37,8 @@ export default function RandomUserPage() {
       `https://randomuser.me/api/?results=${genAmount}`
     );
     setIsLoading(false);
-    const users = resp.data.results;
-    const cleanedUsers = users.map((user) => cleanUser(user));
+    const usersData = resp.data.results;
+    const cleanedUsers = usersData.map((user) => cleanUser(user));
     setUsers(cleanedUsers);
   };
 
@@ -63,13 +63,13 @@ export default function RandomUserPage() {
       )}
       {users &&
         !isLoading &&
-        users.map((users) => (
+        users.map((user, index) => (
           <UserCard
             key={index}
-            name={users.name}
-            imgUrl={users.imgUrl}
-            address={users.address}
-            email={users.email}
+            name={user.name}
+            imgUrl={user.imgUrl}
+            address={user.address}
+            email={user.email}
           />
         ))}
     </div>
