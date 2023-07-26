@@ -38,7 +38,7 @@ export default function RandomUserPage() {
     );
     setIsLoading(false);
     const users = resp.data.results;
-    const cleanedUsers = users.map((users) => cleanUser(users));
+    const cleanedUsers = users.map((user) => cleanUser(user));
     setUsers(cleanedUsers);
   };
 
@@ -63,12 +63,12 @@ export default function RandomUserPage() {
       )}
       {users &&
         !isLoading &&
-        users.map((users) => (
+        users.map((user) => (
           <UserCard
-            name={users.name}
-            imgUrl={users.imgUrl}
-            address={users.address}
-            email={users.email}
+            name={user.name}
+            imgUrl={user.imgUrl}
+            address={user.address}
+            email={user.email}
           />
         ))}
     </div>
